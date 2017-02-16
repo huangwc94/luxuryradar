@@ -21,13 +21,13 @@ def app(environ, start_response):
         with open('favicon.ico', mode='rb') as file:
             data = file.read()
         start_response("200 OK", [
-            ("Content-Type", "text/x-icon"),
+            ("Content-Type", "image/x-icon"),
             ("Content-Length", str(len(data)))
         ])
     else:
         data = open('index.html').read()
         start_response("200 OK", [
-            ("Content-Type", "image/html"),
+            ("Content-Type", "text/html"),
             ("Content-Length", str(len(data)))
         ])
     return iter([data])
