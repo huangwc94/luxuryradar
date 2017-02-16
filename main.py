@@ -4,7 +4,7 @@ import numpy as np
 def analyze(data):
     a = np.fromstring(data,np.uint8)
     img = cv2.imdecode(a,cv2.IMREAD_COLOR)
-    #s
+
     d = {
         "id": 483932343,
         "version":cv2.__version__,
