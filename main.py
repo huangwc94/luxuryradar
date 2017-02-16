@@ -12,7 +12,7 @@ def connector():
 def app(environ, start_response):
 
     if environ['REQUEST_METHOD'] == 'POST':
-        data = connector()
+        data = json.dumps(environ)
         start_response("200 OK", [
             ("Content-Type", "application/json"),
             ("Content-Length", str(len(data)))
