@@ -1,11 +1,14 @@
 import json
-def analyze(image):
-    id = 483932343
-    return id
+import cv2
+import numpy as np
+def analyze(data):
+    a = np.fromstring(data,np.uint8)
+    img = cv2.imdecode(a,cv2.IMREAD_COLOR)
 
-def connector():
     d = {
-        "id": analyze("asdf")
+        "id": 483932343,
+        "version":cv2.__version__,
+        "img":a.size
     }
     return json.dumps(d)
 
@@ -13,7 +16,8 @@ def app(environ, start_response):
 
     if environ['REQUEST_METHOD'] == 'POST':
         request_body_size = int(environ.get('CONTENT_LENGTH', 0))
-        data = environ['wsgi.input'].read(request_body_size)
+        data = analyze(environ['wsgi.input'].read(request_body_size))
+
         start_response("200 OK", [
             ("Content-Type", "application/json"),
             ("Content-Length", str(len(data)))
