@@ -3,7 +3,7 @@ import BaseHTTPServer
 
 
 HOST_NAME = 'luxuryradar.herokuapp.com' # !!!REMEMBER TO CHANGE THIS!!!
-PORT_NUMBER = 80 # Maybe set this to 9000.
+PORT_NUMBER = 8080 # Maybe set this to 9000.
 
 
 class MyHandler(BaseHTTPServer.BaseHTTPRequestHandler):
