@@ -12,9 +12,9 @@ def connector():
 def app(environ, start_response):
 
     if environ['REQUEST_METHOD'] == 'POST':
-        data = json.dumps(environ)
+        data = json.dumps(str(environ))
         start_response("200 OK", [
-            ("Content-Type", "application/json"),
+            ("Content-Type", "text/plain"),
             ("Content-Length", str(len(data)))
         ])
     elif environ['PATH_INFO'] == "/favicon.ico":
