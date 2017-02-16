@@ -12,9 +12,10 @@ def connector():
 def app(environ, start_response):
 
     if environ['REQUEST_METHOD'] == 'POST':
-        data = json.dumps(str(environ))
+        request_body_size = int(environ.get('CONTENT_LENGTH', 0))
+        data = environ['wsgi.input'].read(request_body_size)
         start_response("200 OK", [
-            ("Content-Type", "text/plain"),
+            ("Content-Type", "application/json"),
             ("Content-Length", str(len(data)))
         ])
     elif environ['PATH_INFO'] == "/favicon.ico":
