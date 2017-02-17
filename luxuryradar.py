@@ -5,7 +5,7 @@ def identify(data):
     a = np.fromstring(data)
 
     return json.dumps({
-        "id":66666,
+        "id":3333333,
         "size":len(data),
         "version":cv2.__version__
     })
