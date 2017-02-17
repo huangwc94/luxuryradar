@@ -6,5 +6,6 @@ def identify(data):
 
     return json.dumps({
         "id":66666,
+        "size":len(data),
         "version":cv2.__version__
     })
