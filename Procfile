@@ -1,1 +1,1 @@
-web: python cvtest.py
+web: gunicorn -w 4 main:app
