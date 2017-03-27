@@ -2,9 +2,10 @@ import cv2
 import numpy as np
 import json
 import os
-
-data_dir = "data"
-test_dir = "test"
+root = os.path.dirname(os.path.realpath(__file__))
+print root,os.path.realpath(__file__)
+data_dir = os.path.join(root,"data")
+test_dir = os.path.join(root,"test")
 
 model = cv2.createLBPHFaceRecognizer()
 
