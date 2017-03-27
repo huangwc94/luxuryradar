@@ -23,6 +23,7 @@ def identify(data):
 
     return json.dumps({
         "id": label_list[res],
+        "url":"https://api.shopstyle.com/action/apiVisitRetailer?id="+label_list[res]+"&pid=uid7616-38024704-23"
         "size": b.shape,
         "version": cv2.__version__,
 
