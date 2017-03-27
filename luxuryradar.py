@@ -23,7 +23,7 @@ def identify(data):
 
     return json.dumps({
         "id": label_list[res],
-        "url":"https://api.shopstyle.com/action/apiVisitRetailer?id="+label_list[res]+"&pid=uid7616-38024704-23"
+        "url":"https://api.shopstyle.com/action/apiVisitRetailer?id="+label_list[res]+"&pid=uid7616-38024704-23",
         "size": b.shape,
         "version": cv2.__version__,
 
@@ -35,8 +35,10 @@ print "TRAINING DATABASE..."
 for subdir, dirs, files in os.walk(data_dir):
 
     for file in files:
+    	if file == ".DS_Store":
+    		continue
         path = os.path.join(subdir, file)
-
+        print path
         img = cv2.imread(path)
         img = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
 
@@ -59,6 +61,8 @@ if __name__ == "__main__":
     correct_count = 0
     for subdir, dirs, files in os.walk(test_dir):
         for file in files:
+        	
+
             path = os.path.join(subdir, file)
 
             img = open(path, 'rb').read()
